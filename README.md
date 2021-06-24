@@ -1,5 +1,7 @@
 # Preparing the Database
 
+### Do the following as root user
+
 ```sql
 
 create database shopdb;
