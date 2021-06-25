@@ -18,13 +18,16 @@ function createProductCard(product) {
                 </div>`);
 }
 
-$(function () {
-  let productList = $("#product-list");
-
-  fetchProducts(function (products) {
-    productList.empty();
-    for (var product of products) {
-      productList.append(createProductCard(product));
+function addProduct(name, manufacturer, price, done) {
+  $.post(
+    "/api/products",
+    {
+      name: name,
+      manufacturer: manufacturer,
+      price: price,
+    },
+    function (data) {
+      done(data);
     }
-  });
-});
+  );
+}
